@@ -1,0 +1,16 @@
+
+body {
+    background-color: rgb(88, 70, 70);
+    color: rgb(236, 227, 227);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 50px;
+}
+
+/* Style à appliquer après la saisie du code Konami */
+body.konami {
+    background-color: #0062ff; 
+    color: rgb(236, 230, 236);
+
+}
