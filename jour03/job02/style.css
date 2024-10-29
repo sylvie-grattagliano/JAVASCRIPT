@@ -1,0 +1,11 @@
+#MonArcEnCiel img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: move;
+}
+
+#resultat {
+    margin-top: 10px;
+    font-weight: bold;
+}
