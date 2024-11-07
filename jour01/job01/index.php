@@ -9,14 +9,14 @@
 </head>
 <h1> je teste ma première expérience JS</h1>
 <!-- Alert est une fonction  affiche un message alerte sur page navigateur-->
-<p>Je declarare ma variable</p>
-<p>let alerte = "Hello Javascript!"</p>
-<p>puis j'utilise alert pour afficher un message sur page du navigateur</p>
+<p>Je declarare ma variable avec let :</p>
+<p>let alerte a pour valeur un texte = "Hello Javascript!"</p>
+<p>puis j'utilise alert ("")pour afficher un message sur page du navigateur</p>
+
 <script>
     let alerte = "Hello Javascript!"
-    alert("Hello Javascript job 01!")
+    alert("Hello Javascript !")
 </script>
-<!-- alert ("Hello Javascript!") -->
 
 <body>
     <p>exercice etait :

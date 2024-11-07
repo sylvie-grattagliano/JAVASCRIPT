@@ -48,10 +48,11 @@ $(document).ready(function () {
   // Déplace un carreau dans la case vide
   function moveTile(clickedIndex) {
     const emptyIndex = tiles.indexOf(null);
+    //  positions  pour déplacer l'image cliquée
     const validMoves = [
       emptyIndex - 1,
-      emptyIndex + 1,
-      emptyIndex - size,
+      emptyIndex + 1, //case droite
+      emptyIndex - size, //case au dessus
       emptyIndex + size,
     ];
 
