@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Connexion Jour05Job01</title>
+  </head>
 
+  <body>
+    <div class="container">
+      <h1>Connexion</h1>
+      <form id="loginForm">
+        <div class="form">
+          <div class="label">
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email" required />
+            <span id="emailError" class="error"></span>
+          </div>
+          <div class="label">
+            <label for="motdepasse">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse" required />
+            <span id="passwordError" class="error"></span>
+          </div>
+          <button type="submit">Se connecter</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const email = document.getElementById("email");
+        const password = document.getElementById("motdepasse");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const form = document.getElementById("loginForm");
+
+        // Définition des fonctions de validation
+        const validators = {
+          email: (value) =>
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+              ? ""
+              : "Veuillez entrer un email valide",
+          password: (value) =>
+            /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/.test(value)
+              ? ""
+              : "Minimum 8 caractères, au moins une lettre, un chiffre et un caractère spécial",
+        };
+
+        // Fonction de validation des champs
+        function validateField(input, errorField, validator) {
+          const errorMessage = validator(input.value);
+          errorField.textContent = errorMessage;
+          return !errorMessage;
+        }
+
+        // Ajout d'écouteurs d'événements pour la validation en temps réel
+        email.addEventListener("input", () =>
+          validateField(email, emailError, validators.email)
+        );
+        password.addEventListener("input", () =>
+          validateField(password, passwordError, validators.password)
+        );
+
+        // Gestion de la soumission du formulaire
+        form.addEventListener("submit", (event) => {
+          event.preventDefault(); // Empêche la soumission du formulaire par défaut
+          const isValidEmail = validateField(
+            email,
+            emailError,
+            validators.email
+          );
+          const isValidPassword = validateField(
+            password,
+            passwordError,
+            validators.password
+          );
+
+          if (isValidEmail && isValidPassword) {
+            alert("Connexion réussie !");
+            form.submit(); // Soumet le formulaire si tous les champs sont valides
+          } else {
+            alert(
+              "Veuillez corriger les erreurs avant de soumettre le formulaire."
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
